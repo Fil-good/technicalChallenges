@@ -1,3 +1,4 @@
+// const array of objects
 const oppoStatus = [
   {
     "K_OPPO_STATUS": 1,
