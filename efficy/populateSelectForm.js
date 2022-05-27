@@ -33,17 +33,18 @@ const Module = class {
   }
   start() {
 
-    // let n = oppoStatus.length;
-    // for (let i = 0; i < n; i++) {
-      //  `<option>${oppoStatus[0][1]}</option>`;
 
-      // let form = document.form;
-      let select = document.querySelector('select[name="status"]');
-      select.innerHTML=`<option>Something</option>`;
+    function renderForm(arrOfOptions) {
+      const options = arr.map(option =>
+        `<option>${option}</option>`)
+      document.querySelector('[name="status"]').innerHTML = options;
+
+
+
 
     }
   }
-
+}
 
 const main = new Module();
 main.start();
