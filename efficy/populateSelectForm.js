@@ -33,16 +33,32 @@ const Module = class {
   }
   start() {
 
+    let arrOfStatuses = [];
+    let n = oppoStatus.length;
+    for(let i=0; i<n; i++) {
+      arrOfStatuses.push(oppoStatus[i]["STATUS"]);
+    }
 
-    function renderForm(arrOfOptions) {
+    function populateSelect(arr) {
       const options = arr.map(option =>
-        `<option>${option}</option>`)
-      document.querySelector('[name="status"]').innerHTML = options;
+        `<option>${option}</option>`).join('');
+      let el = document.getElementsByTagName("select");
+      console.log(el);
+      el.innerHTML = `<select id="status" name="status">${options}</select>`;
 
-
-
+      console.log(`getEl select tag: ${el}`);
 
     }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      populateSelect(arrOfStatuses);
+
+    });
+
+    // function showSelectedOption((event) => {
+        // let toPrint = document.getElementsByTagName('select').value;
+        // document.body += `<div>${toPrint}`;
+    // })
   }
 }
 

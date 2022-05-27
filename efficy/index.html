@@ -8,12 +8,15 @@
   <link rel="stylesheet" href="style.css">
   <script src="populateSelectForm.js"></script>
 </head>
+
 <body>
-  <form>
-    <select class="js-select" name="status"></select>
+
+  <form class="js-select">
+    <select id="status" name="status">placeholder</select>
     <input name="success" type="number" min=0 max=100 step=1 value="0">
     <button type="submit">Submit</button>
   </form>
   <div class="output">Waiting for form submit...</div>
+
 </body>
 </html>
