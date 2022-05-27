@@ -32,14 +32,18 @@ const Module = class {
 
   }
   start() {
-    let target = document.getElementById("status");
-    let n = oppoStatus.length;
-    for (let i = 0; i < n; i++) {
-      target.innerHTML = `<option>${oppoStatus[i][1]}</option>`;
+
+    // let n = oppoStatus.length;
+    // for (let i = 0; i < n; i++) {
+      //  `<option>${oppoStatus[0][1]}</option>`;
+
+      // let form = document.form;
+      let select = document.querySelector('select[name="status"]');
+      select.innerHTML=`<option>Something</option>`;
 
     }
   }
-}
+
 
 const main = new Module();
 main.start();
