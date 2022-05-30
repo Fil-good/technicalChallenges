@@ -58,5 +58,4 @@ const Module = class {
   }
 }
 
-const main = new Module();
-main.start();
+export { Module };
