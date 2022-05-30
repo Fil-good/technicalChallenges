@@ -29,31 +29,27 @@ const oppoStatus = [
 
 const Module = class {
   constructor() {
-
-  }
-  start() {
-
     let arrOfStatuses = [];
     let n = oppoStatus.length;
-    for(let i=0; i<n; i++) {
+    for (let i = 0; i < n; i++) {
       arrOfStatuses.push(oppoStatus[i]["STATUS"]);
     }
+    this.arr = arrOfStatuses;
+  }
+  start() {
 
     function populateSelect(arr) {
       const options = arr.map(option =>
         `<option>${option}</option>`).join('');
       let el = document.getElementsByTagName("select");
-      console.log(el);
-      el.innerHTML = `<select id="status" name="status">${options}</select>`;
+      // console.log(el);
+      el.innerHTML = options;
 
-      console.log(`getEl select tag: ${el}`);
+      console.log(`getEl select tag: ${el.innerHTML}`);
 
     }
 
-    document.addEventListener('DOMContentLoaded', (event) => {
-      populateSelect(arrOfStatuses);
-
-    });
+    populateSelect(this.arr);
 
     // function showSelectedOption((event) => {
         // let toPrint = document.getElementsByTagName('select').value;
