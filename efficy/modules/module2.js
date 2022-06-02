@@ -17,7 +17,6 @@ const Module2 = class {
       for (let i = 0; i < n; i++) {
         options += `<option>${i + 1}. ${ingredients[i]}</option>`;
       }
-      // console.log(`options createdropdownlist: ${options}`);
 
       let newDivWithSelect = document.querySelector('select.js-select2');
       newDivWithSelect.innerHTML = options;

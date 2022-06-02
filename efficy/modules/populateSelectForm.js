@@ -51,8 +51,6 @@ const Module = class {
 
     }
 
-    populateSelect(this.arr);
-
 
     function showTheSelected() {
       let el = document.querySelector('button');
@@ -63,14 +61,11 @@ const Module = class {
         divOutput.innerHTML = content;
 
       });
-
     }
 
+    populateSelect(this.arr);
     showTheSelected();
-    // function showSelectedOption((event) => {
-        // let toPrint = document.getElementsByTagName('select').value;
-        // document.body += `<div>${toPrint}`;
-    // })
+
   }
 }
 
