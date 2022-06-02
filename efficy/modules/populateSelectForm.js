@@ -38,11 +38,13 @@ const Module = class {
   }
   start() {
 
+    // getElementByTagName didn't work for me !
+
     function populateSelect(arr) {
       const options = arr.map(option =>
         `<option>${option}</option>`).join('');
-      let el = document.getElementsByTagName("select");
-      // console.log(el);
+      let el = document.querySelector('select.js-select1');
+      console.log(`el: ${el}`);
       el.innerHTML = options;
 
       console.log(`getEl select tag: ${el.innerHTML}`);
@@ -51,6 +53,20 @@ const Module = class {
 
     populateSelect(this.arr);
 
+
+    function showTheSelected() {
+      let el = document.querySelector('button');
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        let content = document.querySelector('select.js-select1').value;
+        let divOutput = document.querySelector("div.output");
+        divOutput.innerHTML = content;
+
+      });
+
+    }
+
+    showTheSelected();
     // function showSelectedOption((event) => {
         // let toPrint = document.getElementsByTagName('select').value;
         // document.body += `<div>${toPrint}`;
