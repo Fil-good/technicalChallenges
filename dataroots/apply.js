@@ -1,24 +1,45 @@
 
 
 
-async function fetchMovieTitles(url='') {
 
+
+// AJAX function to fetch a list of movies, based on a search query (equals the text in input)
+async function fetchMovieTitles(url) {
   const response = await fetch(url)
   return response.json();
-
 }
 
-let url = `http://www.omdbapi.com/?s=lord&apikey=65d6a47c`;
-let ul = document.querySelector('ul');
-let ulInnerHtml = "";
+function showList() {
+  let el = document.querySelector('input');
+  let query = el.value;
+  let url = `http://www.omdbapi.com/?s=${query}&apikey=65d6a47c`;
+  let ul = document.querySelector('ul');
+  let ulInnerHtml = "";
+
+  fetchMovieTitles(url)
+    .then((data) => {
+      data.Search.forEach(movie => {
+      ulInnerHtml += `<li>${movie.Title}</li>`;
+    })})
+    .then(() => {
+      ul.innerHTML = ulInnerHtml;
+    })
+}
+
+// event listener, with handler = showList
+function searchOnKeyword () {
+let searchButton = document.querySelector('button');
+searchButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  showList()
+  });
+}
+
+searchOnKeyword();
 
 
-fetchMovieTitles(url)
-  .then((data) => {
-    data.Search.forEach(movie => {
-    let liUlInnerHtml = `<li>${movie.Title}</li>`;
-    ulInnerHtml += liUlInnerHtml;
-  })})
-  .then(() => {
-    console.log(ulInnerHtml);
-    ul.innerHTML = ulInnerHtml })
+// postMovieImdbId(url, data = {}) {
+
+// }
+
+// imdbID": "tt0120737"
