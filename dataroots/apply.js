@@ -5,8 +5,10 @@
 
 // AJAX function to fetch a list of movies, based on a search query (equals the text in input)
 async function fetchMovieTitles(url) {
-  const response = await fetch(url)
-  return response.json();
+  try {
+    const response = await fetch(url)
+    return response.json();
+  } catch(error) { console.log(error) }; // error handling 404 to be done ideally
 }
 
 function showList() {
@@ -27,13 +29,15 @@ function showList() {
 }
 
 // event listener, with handler = showList
+// put listener on form, submit with enter, and click on button
 function searchOnKeyword () {
-let searchButton = document.querySelector('button');
-searchButton.addEventListener("click", (event) => {
+let searchButton = document.querySelector('form');
+searchButton.addEventListener("submit", (event) => {
   event.preventDefault();
   showList()
-  });
+  })
 }
+
 
 searchOnKeyword();
 
